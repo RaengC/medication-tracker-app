@@ -39,3 +39,16 @@ An app that allows a user to enter medications and set reminders on when to take
 *	Simple form entry for initial details
 *	Ability to edit quantity/date/time
 *	Display for reminders to take medication with options, ie 15min, 30min etc. 
+
+# FRONTEND
+## Tech
+* React
+* Tokens
+## Routes
+
+# BACKEND
+## Tech
+* mongoose js
+* brypt
+* express JS
+## Models
