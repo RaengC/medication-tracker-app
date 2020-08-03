@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-08-03T11:06:01.090Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" etag="KaJtHoyQGMppv72GWYJ9" version="13.5.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-08-03T11:08:38.729Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" etag="4kjnpMqKza15mNm5Zjc4" version="13.5.8" type="github">
   <diagram id="_fhtzTu-SIQN6awzX9eB" name="Page-1">
-    <mxGraphModel dx="1049" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="841" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -14,19 +14,19 @@
           <mxGeometry x="120" y="140" width="600" height="60" as="geometry" />
         </mxCell>
         <mxCell id="o9oyVi1Xe-lzaSq5bDPg-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="120" y="200" width="600" height="320" as="geometry" />
+          <mxGeometry x="120" y="200" width="600" height="250" as="geometry" />
         </mxCell>
         <mxCell id="o9oyVi1Xe-lzaSq5bDPg-8" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="670" y="90" width="40" height="50" as="geometry" />
         </mxCell>
         <mxCell id="o9oyVi1Xe-lzaSq5bDPg-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="120" y="520" width="600" height="190" as="geometry" />
+          <mxGeometry x="120" y="450" width="600" height="190" as="geometry" />
         </mxCell>
-        <mxCell id="o9oyVi1Xe-lzaSq5bDPg-10" value="&lt;h1&gt;Medication List&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="140" y="210" width="300" height="120" as="geometry" />
+        <mxCell id="o9oyVi1Xe-lzaSq5bDPg-10" value="&lt;h1&gt;Medication List&lt;/h1&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;Accessible only when logged in&lt;/li&gt;&lt;li&gt;Display list with:&amp;nbsp;&lt;/li&gt;&lt;li&gt;Medication - Dosage - Times to take - (notes if click in)&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="210" width="460" height="120" as="geometry" />
         </mxCell>
         <mxCell id="o9oyVi1Xe-lzaSq5bDPg-11" value="&lt;h1&gt;Restock Display&lt;/h1&gt;&lt;p&gt;To be added at later stage.&amp;nbsp;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="130" y="530" width="300" height="120" as="geometry" />
+          <mxGeometry x="130" y="460" width="300" height="120" as="geometry" />
         </mxCell>
         <mxCell id="o9oyVi1Xe-lzaSq5bDPg-12" value="&lt;font style=&quot;font-size: 24px&quot;&gt;Login or create account&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="180" y="160" width="440" height="20" as="geometry" />
