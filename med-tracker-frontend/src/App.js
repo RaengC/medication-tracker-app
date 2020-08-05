@@ -2,18 +2,22 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navigation from './Navigation/Navigation'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Login from './Account/Login'
 
 function App() {
+
   return (
-    <React.Fragment>
+
+    <BrowserRouter>
       <Navigation />
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
 
-        </header>
+        <Switch><Route path="/login">
+          <Login />
+        </Route></Switch>
       </div>
-    </React.Fragment>
+    </BrowserRouter>
   );
 }
 

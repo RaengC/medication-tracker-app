@@ -13,14 +13,24 @@ import {
     DropdownItem,
     NavbarText
 } from 'reactstrap'
+import { Link } from 'react-router-dom'
+
+const isLoggedIn = () => {
+    if (window.localStorage.getItem('token')) {
+        return true
+    } else {
+        return false
+    }
+}
+
 
 const Navigation = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
+    const [loggedIn, setLoggedIn] = useState(isLoggedIn)
 
     return (
         <React.Fragment>
-
             <Navbar color="light" light expand="md">
                 <NavbarBrand href="/">Medication Tracker</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
@@ -29,24 +39,21 @@ const Navigation = (props) => {
                         <NavItem>
                             <NavLink href="/components/">Components</NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                        </NavItem>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 Account
-              </DropdownToggle>
+                            </DropdownToggle>
                             <DropdownMenu right>
                                 <DropdownItem>
-                                    Login
-                </DropdownItem>
+                                    <Link to="/login">Login</Link>
+                                </DropdownItem>
                                 <DropdownItem>
                                     Create Account
-                </DropdownItem>
+                                </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                    Reset
-                </DropdownItem>
+                                    Logout
+                                </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
                     </Nav>
