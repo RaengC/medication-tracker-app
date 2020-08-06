@@ -3,6 +3,18 @@ const router = express.Router()
 const User = require('../models/newUser')
 const bcrypt = require('bcryptjs')
 
+router.post('/register', async (req, res) => {
+    req.body.password = await bcrypt.hash(req.body.password, 10)
+    try {
+        const createdUser = await User.create(req.body)
+        console.log(createdUser, ' Created User')
+
+        res.send()
+    } catch (e) {
+        res.send(e)
+    }
+})
+
 router.post('/login', async (req, res) => {
 
     //check if user exists
@@ -29,16 +41,6 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.post('/register', async (req, res) => {
 
-    try {
-        const createdUser = await User.create(req.body)
-        console.log(createdUser, ' Created User')
-
-        res.send()
-    } catch (e) {
-        res.send(e)
-    }
-})
 
 module.exports = router

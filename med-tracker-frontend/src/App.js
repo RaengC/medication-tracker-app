@@ -3,6 +3,7 @@ import './App.css';
 import Navigation from './Navigation/Navigation'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Login from './Account/Login'
+import Register from './Account/Register'
 
 function App() {
 
@@ -12,9 +13,11 @@ function App() {
       <Navigation />
       <div className="App">
 
-        <Switch><Route path="/login">
-          <Login />
-        </Route></Switch>
+        <Switch>
+          <Route path="/login"><Login /></Route>
+          <Route path="/register"><Register /></Route>
+        </Switch>
+
       </div>
     </BrowserRouter>
   );

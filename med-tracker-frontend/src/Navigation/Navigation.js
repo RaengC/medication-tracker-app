@@ -15,19 +15,18 @@ import {
 } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
-const isLoggedIn = () => {
-    if (window.localStorage.getItem('token')) {
-        return true
-    } else {
-        return false
-    }
-}
-
+// const isLoggedIn = () => {
+//     if (window.localStorage.getItem('token')) {
+//         return true
+//     } else {
+//         return false
+//     }
+// }
 
 const Navigation = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
-    const [loggedIn, setLoggedIn] = useState(isLoggedIn)
+    // const [loggedIn, setLoggedIn] = useState(isLoggedIn)
 
     return (
         <React.Fragment>
@@ -48,7 +47,7 @@ const Navigation = (props) => {
                                     <Link to="/login">Login</Link>
                                 </DropdownItem>
                                 <DropdownItem>
-                                    Create Account
+                                    <Link to="/register">Create Account</Link>
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
