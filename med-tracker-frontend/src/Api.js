@@ -5,7 +5,7 @@ const fetchHeaderOptions = {
 
 
 export async function login(userDetails) {
-    const result = await fetch('/login', {
+    const result = await fetch('/account/login', {
         method: 'POST',
         body: JSON.stringify(userDetails),
         headers: fetchHeaderOptions
