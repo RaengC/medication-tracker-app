@@ -4,6 +4,9 @@ import Navigation from './Navigation/Navigation'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Login from './Account/Login'
 import Register from './Account/Register'
+import Medication from './Medication/Medication'
+import MedicationNew from './Medication/MedicationNew'
+
 
 function App() {
 
@@ -12,12 +15,14 @@ function App() {
     <BrowserRouter>
       <Navigation />
       <div className="App">
-
         <Switch>
           <Route path="/login"><Login /></Route>
           <Route path="/register"><Register /></Route>
         </Switch>
-
+      </div>
+      <div>
+        <Medication />
+        <MedicationNew />
       </div>
     </BrowserRouter>
   );

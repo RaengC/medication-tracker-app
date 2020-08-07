@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import { useHistory } from 'react-router-dom'
 import { login } from '../Api'
 
@@ -10,16 +10,25 @@ function LoginPage(props) {
     const [username, setName] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
         login({
             username: username,
             password: password,
+        }).then(() => {
+            setName('')
+            setPassword('')
+            history.push('/')
+
+            //TO DO - does not stop if incorrect details added. 
+
+        }).catch(e => {
+            console.log(e)
+            //add error and stop if not correct
         })
-        setName('')
-        setPassword('')
-        history.push('/')
+
     }
 
     return (

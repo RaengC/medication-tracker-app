@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { register } from '../Api'
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import { useHistory } from 'react-router-dom'
 
 const RegisterUser = (props) => {

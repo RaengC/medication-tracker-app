@@ -21,3 +21,13 @@ export async function register(userDetails) {
     })
     return result.headers.get('token')
 }
+
+export async function addMedication(medicationDetails) {
+    const result = await fetch('/medication/new', {
+        method: 'POST',
+        body: JSON.stringify(medicationDetails),
+        headers: fetchHeaderOptions
+    })
+    const data = await result.json()
+    return data
+}
