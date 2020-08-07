@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { register } from '../Api'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { useHistory } from 'react-router-dom'
 
 const RegisterUser = (props) => {
+
+    let history = useHistory()
 
     const [username, setName] = useState('')
     const [password, setPassword] = useState('')
@@ -16,6 +19,10 @@ const RegisterUser = (props) => {
             password: password,
             email: email
         })
+        setName('')
+        setPassword('')
+        setEmail('')
+        history.push('/')
 
     }
 
