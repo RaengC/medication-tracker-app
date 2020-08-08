@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navigation from './Navigation/Navigation'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import Login from './Account/Login'
 import Register from './Account/Register'
@@ -30,8 +30,8 @@ function App() {
         <Switch>
           <Route path="/login"><Login setLoggin={setLoggedIn} /></Route>
           <Route path="/register"><Register /></Route>
-          <Route path="/profile">{loggedIn && <Medication />
-          } </Route>
+          <Route path="/profile">{loggedIn ? <Medication /> : <Redirect to={'/login'} />}
+          </Route>
           <Route path="/addMedication"><MedicationNew /></Route>
 
           <Route path="/"><LandingPage /></Route>

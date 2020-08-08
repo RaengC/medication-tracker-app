@@ -101,7 +101,7 @@ const MedicationNew = (props) => {
                         name="select"
                         id="exampleSelect"
                         onChange={(e) => setFrequency(e.currentTarget.value)}
-                        defaultValue={{ label: 2002, value: 2002 }}
+                    // defaultValue={{ label: "Daily", value: "Daily" }} not currently working... 
                     >
                         <option value="Daily">Daily</option>
                         <option value="Weekly">Weekly</option>
