@@ -26,6 +26,8 @@ const MedicationNew = (props) => {
             time: time,
             reminder: reminder,
             notes: notes
+        }).then(() => {
+            history.push('/profile')
         })
 
         setName('')
@@ -99,7 +101,7 @@ const MedicationNew = (props) => {
                         name="select"
                         id="exampleSelect"
                         onChange={(e) => setFrequency(e.currentTarget.value)}
-                        defaultValue={{ label: "Daily", value: "Daily" }}
+                        defaultValue={{ label: 2002, value: 2002 }}
                     >
                         <option value="Daily">Daily</option>
                         <option value="Weekly">Weekly</option>
@@ -171,7 +173,7 @@ const MedicationNew = (props) => {
             </FormGroup>
             <FormGroup check row>
                 <Col sm={{ size: 10, offset: 2 }}>
-                    <Button input type="submit" onClick={() => { history.push('/profile') }}>Submit</Button>
+                    <Button input type="submit">Submit</Button>
                 </Col>
             </FormGroup>
         </Form >
