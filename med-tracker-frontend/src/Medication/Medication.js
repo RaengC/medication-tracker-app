@@ -1,7 +1,12 @@
 import React from 'react'
 import { Jumbotron, Button } from 'reactstrap'
+import { useHistory } from 'react-router-dom'
+
+
 
 const Medication = (props) => {
+    let history = useHistory()
+
     return (
         <div>
             <Jumbotron>
@@ -10,7 +15,7 @@ const Medication = (props) => {
                 <hr className="my-2" />
                 <p>Add your medication below to get started.</p>
                 <p className="lead">
-                    <Button color="primary">
+                    <Button color="primary" onClick={() => { history.push('/addMedication') }}>
                         Add Medication
                     </Button>
                 </p>

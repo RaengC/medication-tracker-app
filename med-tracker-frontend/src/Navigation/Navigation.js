@@ -36,8 +36,8 @@ const Navigation = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink href="/container/">
-                                Container
+                            <NavLink href="/profile">
+                                Profile
                             </NavLink>
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar>

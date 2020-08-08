@@ -6,6 +6,7 @@ import Login from './Account/Login'
 import Register from './Account/Register'
 import Medication from './Medication/Medication'
 import MedicationNew from './Medication/MedicationNew'
+import LandingPage from './LandingPage/LandingPage'
 
 
 function App() {
@@ -14,15 +15,17 @@ function App() {
 
     <BrowserRouter>
       <Navigation />
+
       <div className="App">
         <Switch>
           <Route path="/login"><Login /></Route>
           <Route path="/register"><Register /></Route>
+          <Route path="/profile"><Medication /></Route>
+          <Route path="/addMedication"><MedicationNew /></Route>
+
+          <Route path="/"><LandingPage /></Route>
+
         </Switch>
-      </div>
-      <div>
-        <Medication />
-        <MedicationNew />
       </div>
     </BrowserRouter>
   );

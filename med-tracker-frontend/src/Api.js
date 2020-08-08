@@ -5,12 +5,17 @@ const fetchHeaderOptions = {
 
 
 export async function login(userDetails) {
-    const result = await fetch('/account/login', {
-        method: 'POST',
-        body: JSON.stringify(userDetails),
-        headers: fetchHeaderOptions
-    })
-    return result.headers.get('token')
+    try {
+        const result = await fetch('/account/login', {
+            method: 'POST',
+            body: JSON.stringify(userDetails),
+            headers: fetchHeaderOptions
+        })
+        return await result.json()
+    } catch {
+        return Promise.reject()
+    }
+
 }
 
 export async function register(userDetails) {

@@ -1,9 +1,18 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const session = require('express-session')
 const cors = require('cors')
 
 require('./db/db')
+
+//Express-session
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}))
 
 //CORS as middleware
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -14,8 +23,10 @@ app.use(cors())
 
 //Require controllers
 const accountController = require('./controllers/accountController')
+const medController = require('./controllers/medController')
 
 app.use('/account', accountController)
+app.use('/medication', medController)
 
 app.listen(process.env.PORT || 9000, () => {
     console.log('listening on port 9000')

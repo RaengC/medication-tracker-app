@@ -22,7 +22,7 @@ const RegisterUser = (props) => {
         setName('')
         setPassword('')
         setEmail('')
-        history.push('/')
+        history.push('/profile')
 
     }
 

@@ -28,19 +28,23 @@ router.post('/login', async (req, res) => {
                 req.session.userId = foundUser._id
                 req.session.username = foundUser.username
                 req.session.logged = true
+                console.log('valid user')
+                res.send(req.session)
             } else {
                 req.session.message = 'Username or password is incorrect'
-                res.redirect('/')
+                res.status(401).send()
+                console.log('invalid password')
             }
         } else {
             req.session.message = 'Username or password is incorrect'
-            res.redirect('/')
+            res.status(401).send()
+            console.log('user not found')
         }
     } catch (e) {
-        res.send(e)
+        res.status(500).send()
+        //500 is internal server error
+        console.log(e)
     }
 })
-
-
 
 module.exports = router
