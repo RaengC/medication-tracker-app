@@ -167,7 +167,7 @@ const MedicationNew = (props) => {
 
             <FormGroup check row>
                 <Col sm={{ size: 10, offset: 2 }}>
-                    <Button>Submit</Button>
+                    <Button input type="submit">Submit</Button>
                 </Col>
             </FormGroup>
         </Form>

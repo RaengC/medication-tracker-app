@@ -3,6 +3,7 @@ import { Jumbotron, Button } from 'reactstrap'
 import { useHistory } from 'react-router-dom'
 
 
+//need to not show unless user loggedin
 
 const Medication = (props) => {
     let history = useHistory()
