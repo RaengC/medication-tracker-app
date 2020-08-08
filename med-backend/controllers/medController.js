@@ -3,7 +3,7 @@ const router = express.Router()
 const Medication = require('../models/newMedication')
 
 router.post('/new', async (req, res) => {
-
+    req.body.owner = req.session.userId
     try {
         const createMedication = await Medication.create(req.body)
         res.json({

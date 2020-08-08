@@ -28,8 +28,10 @@ router.post('/login', async (req, res) => {
                 req.session.userId = foundUser._id
                 req.session.username = foundUser.username
                 req.session.logged = true
+                //add jwt token here
                 console.log('valid user')
                 res.send(req.session)
+
             } else {
                 req.session.message = 'Username or password is incorrect'
                 res.status(401).send()

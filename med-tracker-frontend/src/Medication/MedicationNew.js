@@ -9,10 +9,8 @@ const MedicationNew = (props) => {
     const [dosage, setDosage] = useState('')
     const [frequency, setFrequency] = useState('')
     const [time, setTime] = useState([])
+    const [reminder, setReminder] = useState([])
     const [notes, setNotes] = useState('')
-    const [fiveMin, setFiveMin] = useState('')
-    const [fifteenMin, setFifteenMin] = useState('')
-    const [noReminder, setNoReminder] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,10 +21,8 @@ const MedicationNew = (props) => {
             dosage: dosage,
             frequency: frequency,
             time: time,
-            notes: notes,
-            fiveMin: fiveMin,
-            fifteenMin: fifteenMin,
-            noReminder: noReminder
+            reminder: reminder,
+            notes: notes
         })
 
         setName('')
@@ -34,17 +30,21 @@ const MedicationNew = (props) => {
         setDosage('')
         setFrequency('')
         setTime([])
+        setReminder([])
         setNotes('')
-        setFiveMin(5)
-        setFifteenMin(15)
-        setNoReminder(null)
+
     }
 
     function addSelectedTimes(event) {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         const selectedOptions = [...event.target.selectedOptions].map(o => o.value)
         setTime(selectedOptions)
-        console.log(selectedOptions)
+        // console.log(selectedOptions)
+    }
+
+    function addSelectedReminder(event) {
+        const selectedOptions = [...event.target.selectedOptions].map(o => o.value)
+        setReminder(selectedOptions)
     }
 
     return (
@@ -96,7 +96,7 @@ const MedicationNew = (props) => {
                         name="select"
                         id="exampleSelect"
                         onChange={(e) => setFrequency(e.currentTarget.value)}
-                        defaultValue={{ label: "Daily", value: 0 }}
+                        defaultValue={{ label: "Daily", value: "Daily" }}
                     >
                         <option value="Daily">Daily</option>
                         <option value="Weekly">Weekly</option>
@@ -104,7 +104,7 @@ const MedicationNew = (props) => {
                 </Col>
             </FormGroup>
             <FormGroup row>
-                <Label for="selectMulti" sm={2}>Time Taken</Label>
+                <Label for="selectMulti" sm={2}>Set Time/s Taken</Label>
                 <Col sm={10}>
                     <Input
                         type="select"
@@ -133,6 +133,27 @@ const MedicationNew = (props) => {
                     </Input>
                 </Col>
             </FormGroup>
+
+            <FormGroup row>
+                <Label for="selectMulti" sm={2}>Set Reminder/s</Label>
+                <Col sm={10}>
+                    <Input
+                        type="select"
+                        name="selectMulti"
+                        id="selectMulti"
+                        multiple={true}
+                        onChange={(event) => {
+                            addSelectedReminder(event)
+                        }}
+                    >
+                        <option value="5 minutes">5 minutes</option>
+                        <option value="10 minutes">10 minutes</option>
+                        <option value="15 minutes">15 minutes</option>
+                        <option value="20 minutes">30 minutes</option>
+                    </Input>
+                </Col>
+            </FormGroup>
+
             <FormGroup row>
                 <Label for="exampleText" sm={2}>Personal Notes</Label>
                 <Col sm={10}>
@@ -145,43 +166,6 @@ const MedicationNew = (props) => {
                     />
                 </Col>
             </FormGroup>
-
-            <FormGroup tag="fieldset" row>
-                <legend className="col-form-label col-sm-2">Set Reminder Alert</legend>
-                <Col sm={10}>
-                    <FormGroup check>
-                        <Label check>
-                            <Input
-                                type="radio"
-                                name="radio2"
-                                value={5}
-                            />{' '}
-              Set reminder to take medication at 5 minuites
-            </Label>
-                    </FormGroup>
-                    <FormGroup check>
-                        <Label check>
-                            <Input
-                                type="radio"
-                                name="radio2"
-                                value={15}
-                            />{' '}
-                Set reminder to take medication at 15 minuites
-            </Label>
-                    </FormGroup>
-                    <FormGroup check >
-                        <Label check>
-                            <Input
-                                type="radio"
-                                name="radio2"
-                                value={null}
-                            />{' '}
-              Disable reminders
-            </Label>
-                    </FormGroup>
-                </Col>
-            </FormGroup>
-
             <FormGroup check row>
                 <Col sm={{ size: 10, offset: 2 }}>
                     <Button input type="submit">Submit</Button>

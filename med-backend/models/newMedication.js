@@ -6,10 +6,14 @@ const MedicationSchema = new mongoose.Schema({
     dosage: String,
     frequency: String,
     time: [],
+    reminder: [],
     notes: String,
-    fiveMin: String,
-    fifteenMin: String,
-    noReminder: String,
+
+    owner: {
+        type: String,
+        ref: 'User',
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Medication', MedicationSchema)

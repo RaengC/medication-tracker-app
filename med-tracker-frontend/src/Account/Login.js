@@ -17,9 +17,10 @@ function LoginPage(props) {
         login({
             username: username,
             password: password,
-        }).then(() => {
+        }).then((token) => {
             setName('')
             setPassword('')
+            props.setLoggin(true)
             history.push('/profile')
 
             //TO DO - does not stop if incorrect details added. 
@@ -40,6 +41,7 @@ function LoginPage(props) {
                 error &&
                 <p>Login or Password Incorrect, please try again.</p>
             }
+
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label for="username">Username</Label>
