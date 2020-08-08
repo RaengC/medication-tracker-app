@@ -7,7 +7,8 @@ const MedicationNew = (props) => {
     const [name, setName] = useState('')
     const [totalQuantity, setTotalQuantity] = useState('')
     const [dosage, setDosage] = useState('')
-
+    const [frequency, setFrequency] = useState('')
+    const [time, setTime] = useState([])
     const [notes, setNotes] = useState('')
     const [fiveMin, setFiveMin] = useState('')
     const [fifteenMin, setFifteenMin] = useState('')
@@ -20,21 +21,31 @@ const MedicationNew = (props) => {
             name: name,
             totalQuantity: totalQuantity,
             dosage: dosage,
+            frequency: frequency,
+            time: time,
             notes: notes,
             fiveMin: fiveMin,
             fifteenMin: fifteenMin,
             noReminder: noReminder
         })
+
         setName('')
         setTotalQuantity('')
         setDosage('')
+        setFrequency('')
+        setTime([])
         setNotes('')
         setFiveMin(5)
         setFifteenMin(15)
         setNoReminder(null)
     }
 
-
+    function addSelectedTimes(event) {
+        console.log(event.target.value)
+        const selectedOptions = [...event.target.selectedOptions].map(o => o.value)
+        setTime(selectedOptions)
+        console.log(selectedOptions)
+    }
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -84,9 +95,11 @@ const MedicationNew = (props) => {
                         type="select"
                         name="select"
                         id="exampleSelect"
+                        onChange={(e) => setFrequency(e.currentTarget.value)}
+                        defaultValue={{ label: "Daily", value: 0 }}
                     >
-                        <option>Daily</option>
-                        <option>Weekly</option>
+                        <option value="Daily">Daily</option>
+                        <option value="Weekly">Weekly</option>
                     </Input>
                 </Col>
             </FormGroup>
@@ -97,22 +110,26 @@ const MedicationNew = (props) => {
                         type="select"
                         name="selectMulti"
                         id="selectMulti"
-                        multiple
+                        multiple={true}
+                        onChange={(event) => {
+                            addSelectedTimes(event)
+                        }}
                     >
-                        <option>8am</option>
-                        <option>9am</option>
-                        <option>10am</option>
-                        <option>11am</option>
-                        <option>12pm</option>
-                        <option>1pm</option>
-                        <option>2pm</option>
-                        <option>3pm</option>
-                        <option>4pm</option>
-                        <option>5pm</option>
-                        <option>6pm</option>
-                        <option>7pm</option>
-                        <option>8pm</option>
-                        <option>9pm</option>
+                        <option value="07:00">7am</option>
+                        <option value="08:00">8am</option>
+                        <option value="09:00">9am</option>
+                        <option value="10:00">10am</option>
+                        <option value="11:00">11am</option>
+                        <option value="12:00">12pm</option>
+                        <option value="13:00">1pm</option>
+                        <option value="14:00">2pm</option>
+                        <option value="15:00">3pm</option>
+                        <option value="16:00">4pm</option>
+                        <option value="17:00">5pm</option>
+                        <option value="18:00">6pm</option>
+                        <option value="19:00">7pm</option>
+                        <option value="20:00">8pm</option>
+                        <option value="21:00">9pm</option>
                     </Input>
                 </Col>
             </FormGroup>
@@ -170,7 +187,7 @@ const MedicationNew = (props) => {
                     <Button input type="submit">Submit</Button>
                 </Col>
             </FormGroup>
-        </Form>
+        </Form >
     );
 }
 

@@ -12,7 +12,7 @@ const Medication = (props) => {
         <div>
             <Jumbotron>
                 <h1 className="display-3">Medication Tracker</h1>
-                <p className="lead">Welcome to your medication/supplement tracking app. Users can add new medication, with their daily dosage to track when medication is taken each day.</p>
+                <p className="lead">Welcome to your personal medication/supplement tracking app. </p>
                 <hr className="my-2" />
                 <p>Add your medication below to get started.</p>
                 <p className="lead">
