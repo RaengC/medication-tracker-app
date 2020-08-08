@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { useHistory } from 'react-router-dom'
+
 import { addMedication } from '../Api'
 
 const MedicationNew = (props) => {
+    let history = useHistory()
 
     const [name, setName] = useState('')
     const [totalQuantity, setTotalQuantity] = useState('')
@@ -168,7 +171,7 @@ const MedicationNew = (props) => {
             </FormGroup>
             <FormGroup check row>
                 <Col sm={{ size: 10, offset: 2 }}>
-                    <Button input type="submit">Submit</Button>
+                    <Button input type="submit" onClick={() => { history.push('/profile') }}>Submit</Button>
                 </Col>
             </FormGroup>
         </Form >
