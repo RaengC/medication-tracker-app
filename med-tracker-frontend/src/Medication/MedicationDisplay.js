@@ -1,19 +1,36 @@
 import React from 'react'
-import { Container, Row, ListGroup, ListGroupItem } from 'reactstrap';
+import { Table } from 'reactstrap';
 
 const MedicationDisplay = (props) => {
-
-
     return (
-        <Row>
-            <ListGroup>
-                <ListGroupItem>Cras justo odio</ListGroupItem>
-                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                <ListGroupItem>Morbi leo risus</ListGroupItem>
-                <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
-                <ListGroupItem>Vestibulum at eros</ListGroupItem>
-            </ListGroup>
-        </Row>
+        // console.log(props)
+
+        <Table hover>
+            <thead>
+                <tr>
+                    <th>Medication</th>
+                    <th>Dosage</th>
+                    <th>Frequency Taken</th>
+                    <th>Time Taken</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+
+            {props.medications.map((medication) => {
+                return (<tbody>
+                    <tr >
+                        <th scope="row" key={medication._id}>{medication.name}</th>
+                        <td>{medication.dosage}</td>
+                        <td>{medication.frequency}</td>
+                        <td>{medication.time}</td>
+                        <td>{medication.notes}</td>
+                    </tr>
+                </tbody>
+                )
+            })}
+
+        </Table >
+
     );
 }
 

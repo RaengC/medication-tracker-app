@@ -3,9 +3,6 @@ const headerOptions = {
     token: window.localStorage.getItem('token')
 }
 
-
-
-
 export async function login(userDetails) {
     try {
         const result = await fetch('/account/login', {
@@ -37,4 +34,14 @@ export async function addMedication(medicationDetails) {
     })
     const data = await result.json()
     return data
+}
+
+export async function getMedicationsList() {
+    const result = await fetch('/medication', {
+        headers: headerOptions,
+    })
+    const data = await result.json()
+    console.log(data.data, ' med list')
+    return data.data
+
 }

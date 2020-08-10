@@ -10,7 +10,7 @@ import Register from './Account/Register'
 import Medication from './Medication/Medication'
 import MedicationNew from './Medication/MedicationNew'
 import LandingPage from './LandingPage/LandingPage'
-// import MedicationDisplay from './Medication/MedicationDisplay'
+import MedicationDisplay from './Medication/MedicationDisplay'
 
 
 export const isLoggedIn = () => {
