@@ -112,6 +112,7 @@ const MedicationNew = (props) => {
                     </Space>
                 </Col>
             </FormGroup>
+
             <FormGroup row>
                 <Label for="frequency" sm={2}>Frequency Taken</Label>
                 <Col sm={10}>

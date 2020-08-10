@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import Navigation from './Navigation/Navigation'
+import { Container } from 'reactstrap'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
+import Navigation from './Navigation/Navigation'
 import Login from './Account/Login'
 import Register from './Account/Register'
 import Medication from './Medication/Medication'
 import MedicationNew from './Medication/MedicationNew'
 import LandingPage from './LandingPage/LandingPage'
-
+// import MedicationDisplay from './Medication/MedicationDisplay'
 
 
 export const isLoggedIn = () => {
@@ -28,18 +29,20 @@ function App() {
       <Navigation />
 
       <div className="App">
+        <Container>
 
+          <Switch>
+            <Route path="/login"><Login setLoggin={setLoggedIn} /></Route>
+            <Route path="/register"><Register /></Route>
+            <Route path="/profile">{loggedIn ? <Medication /> : <Redirect to={'/login'} />}
 
-        <Switch>
-          <Route path="/login"><Login setLoggin={setLoggedIn} /></Route>
-          <Route path="/register"><Register /></Route>
-          <Route path="/profile">{loggedIn ? <Medication /> : <Redirect to={'/login'} />}
-          </Route>
-          <Route path="/addMedication"><MedicationNew /></Route>
+            </Route>
+            <Route path="/addMedication"><MedicationNew /></Route>
 
-          <Route path="/"><LandingPage /></Route>
+            <Route path="/"><LandingPage /></Route>
+          </Switch>
 
-        </Switch>
+        </Container>
       </div>
 
     </BrowserRouter>

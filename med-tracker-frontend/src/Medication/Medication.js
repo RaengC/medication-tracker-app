@@ -1,6 +1,8 @@
 import React from 'react'
 import { Jumbotron, Button } from 'reactstrap'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Route, Switch } from 'react-router-dom'
+
+import MedicationDisplay from './MedicationDisplay'
 
 
 
@@ -9,6 +11,7 @@ const Medication = (props) => {
 
     return (
         <div>
+
             <Jumbotron>
                 <h1 className="display-3">Medication Tracker</h1>
                 <p className="lead">Welcome, to your personal medication/supplement tracking app. </p>
@@ -20,7 +23,14 @@ const Medication = (props) => {
                     </Button>
                 </p>
             </Jumbotron>
+
+            <Switch>
+                <Route><MedicationDisplay /></Route>
+            </Switch>
+
         </div>
+
+
     )
 }
 
