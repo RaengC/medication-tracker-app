@@ -15,13 +15,6 @@ import {
 } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
-// const isLoggedIn = () => {
-//     if (window.localStorage.getItem('token')) {
-//         return true
-//     } else {
-//         return false
-//     }
-// }
 
 const Navigation = (props) => {
     const [isOpen, setIsOpen] = useState(false);

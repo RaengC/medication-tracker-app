@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useHistory } from 'react-router-dom'
+import { DatePicker, Space } from 'antd'
 
 import { addMedication } from '../Api'
 
@@ -10,6 +11,7 @@ const MedicationNew = (props) => {
     const [name, setName] = useState('')
     const [totalQuantity, setTotalQuantity] = useState('')
     const [dosage, setDosage] = useState('')
+    const [startDate, setStartDate] = useState('')
     const [frequency, setFrequency] = useState('')
     const [time, setTime] = useState([])
     const [reminder, setReminder] = useState([])
@@ -19,13 +21,14 @@ const MedicationNew = (props) => {
         e.preventDefault()
 
         addMedication({
-            name: name,
-            totalQuantity: totalQuantity,
-            dosage: dosage,
-            frequency: frequency,
-            time: time,
-            reminder: reminder,
-            notes: notes
+            name,
+            totalQuantity,
+            dosage,
+            startDate,
+            frequency,
+            time,
+            reminder,
+            notes,
         }).then(() => {
             history.push('/profile')
         })
@@ -33,6 +36,7 @@ const MedicationNew = (props) => {
         setName('')
         setTotalQuantity('')
         setDosage('')
+        setStartDate('')
         setFrequency('')
         setTime([])
         setReminder([])
@@ -52,7 +56,13 @@ const MedicationNew = (props) => {
         setReminder(selectedOptions)
     }
 
+    function onChangeStartDate(date, dateString) {
+        console.log(date, dateString);
+        setStartDate(dateString)
+    }
+
     return (
+
         <Form onSubmit={handleSubmit}>
             <FormGroup row>
                 <Label for="name" sm={2}>Name</Label>
@@ -93,6 +103,15 @@ const MedicationNew = (props) => {
                     />
                 </Col>
             </FormGroup>
+
+            <FormGroup row>
+                <Label for="frequency" sm={2}>Start Date</Label>
+                <Col sm={10}>
+                    <Space direction="vertical">
+                        <DatePicker onChange={onChangeStartDate} />
+                    </Space>
+                </Col>
+            </FormGroup>
             <FormGroup row>
                 <Label for="frequency" sm={2}>Frequency Taken</Label>
                 <Col sm={10}>
@@ -102,9 +121,12 @@ const MedicationNew = (props) => {
                         id="exampleSelect"
                         onChange={(e) => setFrequency(e.currentTarget.value)}
                     // defaultValue={{ label: "Daily", value: "Daily" }} not currently working... 
+                    //find way to use default to Daily not the cheat below!!!
                     >
+                        <option>Select your frequency</option>
                         <option value="Daily">Daily</option>
                         <option value="Weekly">Weekly</option>
+
                     </Input>
                 </Col>
             </FormGroup>
@@ -151,10 +173,10 @@ const MedicationNew = (props) => {
                             addSelectedReminder(event)
                         }}
                     >
-                        <option value="5 minutes">5 minutes</option>
-                        <option value="10 minutes">10 minutes</option>
-                        <option value="15 minutes">15 minutes</option>
-                        <option value="20 minutes">30 minutes</option>
+                        <option value="300">5 minutes</option>
+                        <option value="600">10 minutes</option>
+                        <option value="900">15 minutes</option>
+                        <option value="1800">30 minutes</option>
                     </Input>
                 </Col>
             </FormGroup>

@@ -39,7 +39,7 @@ function LoginPage(props) {
         <React.Fragment>
             {
                 error &&
-                <p>Login or Password Incorrect, please try again.</p>
+                <p>Login or Password Incorrect, please try again or Create an Account.</p>
             }
 
             <Form onSubmit={handleSubmit}>

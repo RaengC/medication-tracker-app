@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'antd/dist/antd.css';
 import Navigation from './Navigation/Navigation'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
@@ -8,6 +9,8 @@ import Register from './Account/Register'
 import Medication from './Medication/Medication'
 import MedicationNew from './Medication/MedicationNew'
 import LandingPage from './LandingPage/LandingPage'
+
+
 
 export const isLoggedIn = () => {
   //need to add if refresh so loggedin checks

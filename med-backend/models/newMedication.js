@@ -5,8 +5,9 @@ const MedicationSchema = new mongoose.Schema({
     totalQuantity: String,
     dosage: String,
     frequency: String,
+    startDate: Date,
     time: [],
-    reminder: [],
+    reminder: [Number],
     notes: String,
 
     owner: {
