@@ -55,3 +55,12 @@ export const editMedication = async (id, medDetails) => {
     console.log(data, ' edit list api')
     return data
 }
+
+export async function deleteMedication(id) {
+    const result = await fetch(`/medication/${id}`, {
+        method: 'DELETE',
+        headers: headerOptions
+    })
+    const data = await result.json()
+    return data
+}

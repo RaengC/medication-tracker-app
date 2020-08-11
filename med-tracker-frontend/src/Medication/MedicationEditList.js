@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Table, Button } from 'reactstrap';
 
-import { getMedicationsList, editMedication } from '../Api'
+import { getMedicationsList, editMedication, deleteMedication } from '../Api'
 import { Redirect } from 'react-router';
 
 const EditList = (props) => {
@@ -23,6 +23,11 @@ const EditList = (props) => {
         setEditMedication(medID)
     }
 
+    const deleteMedHandler = async (id) => {
+        const data = await deleteMedication(id)
+        setMedications(medications.filter((medication) => medication._id !== data.data._id))
+    }
+
     return (
 
         <Table hover>
@@ -32,6 +37,7 @@ const EditList = (props) => {
                     <th>Dosage</th>
                     <th>Frequency Taken</th>
                     <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
 
@@ -42,7 +48,11 @@ const EditList = (props) => {
                         <td>{medication.dosage}</td>
                         <td>{medication.frequency}</td>
                         <td><Button onClick={() => editMed && <Redirect to={`/edit/${editMed}`} />} >
-                            Select
+                            Edit
+                        </Button></td>
+                        <td><Button onClick={() => deleteMedHandler(medication._id)} >
+                            Delete
+                         
                         </Button></td>
                     </tr>
                 </tbody>

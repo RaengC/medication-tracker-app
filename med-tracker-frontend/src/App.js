@@ -9,7 +9,7 @@ import Login from './Account/Login'
 import Register from './Account/Register'
 import Medication from './Medication/Medication'
 import MedicationNew from './Medication/MedicationNew'
-import MedicationEdit from './Medication/MedicationEdit'
+import MedicationEditList from './Medication/MedicationEditList'
 import LandingPage from './LandingPage/LandingPage'
 import Edit from './Medication/Edit'
 
@@ -36,7 +36,7 @@ function App() {
             <Route path="/register"><Register /></Route>
             <Route path="/profile">{loggedIn ? <Medication /> : <Redirect to={'/login'} />} </Route>
             <Route path="/addMedication"><MedicationNew /></Route>
-            <Route path="/editMedication"><MedicationEdit /></Route>
+            <Route path="/editMedication"><MedicationEditList /></Route>
             <Route path="/edit"><Edit /></Route>
 
             <Route path="/"><LandingPage /></Route>

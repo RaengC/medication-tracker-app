@@ -57,4 +57,20 @@ router.post('/new', async (req, res) => {
     }
 })
 
+//Delete route
+router.delete('/:id', async (req, res) => {
+    try {
+        const deleteMedication = await Medication.findByIdAndRemove(req.params.id)
+        res.json({
+            status: {
+                code: 200,
+                message: "Medication deleted"
+            },
+            data: deleteMedication
+        })
+    } catch (e) {
+        res.send(e)
+    }
+})
+
 module.exports = router
