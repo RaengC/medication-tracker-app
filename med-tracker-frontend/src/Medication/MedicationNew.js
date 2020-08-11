@@ -17,6 +17,8 @@ const MedicationNew = (props) => {
     const [reminder, setReminder] = useState([])
     const [notes, setNotes] = useState('')
 
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
 

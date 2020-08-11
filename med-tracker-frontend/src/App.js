@@ -9,9 +9,9 @@ import Login from './Account/Login'
 import Register from './Account/Register'
 import Medication from './Medication/Medication'
 import MedicationNew from './Medication/MedicationNew'
+import MedicationEdit from './Medication/MedicationEdit'
 import LandingPage from './LandingPage/LandingPage'
-import MedicationDisplay from './Medication/MedicationDisplay'
-
+import Edit from './Medication/Edit'
 
 export const isLoggedIn = () => {
   //need to add if refresh so loggedin checks
@@ -34,10 +34,10 @@ function App() {
           <Switch>
             <Route path="/login"><Login setLoggin={setLoggedIn} /></Route>
             <Route path="/register"><Register /></Route>
-            <Route path="/profile">{loggedIn ? <Medication /> : <Redirect to={'/login'} />}
-
-            </Route>
+            <Route path="/profile">{loggedIn ? <Medication /> : <Redirect to={'/login'} />} </Route>
             <Route path="/addMedication"><MedicationNew /></Route>
+            <Route path="/editMedication"><MedicationEdit /></Route>
+            <Route path="/edit"><Edit /></Route>
 
             <Route path="/"><LandingPage /></Route>
           </Switch>

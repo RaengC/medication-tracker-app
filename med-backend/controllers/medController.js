@@ -5,7 +5,7 @@ const Medication = require('../models/newMedication')
 
 //Get all - show all medications
 router.get('/', async (req, res) => {
-    console.log(req.body, ' this is getting all meds')
+    // console.log(req.body, ' this is getting all meds')
     try {
         const allMedications = await Medication.find()
 
@@ -15,6 +15,25 @@ router.get('/', async (req, res) => {
                 message: 'Success'
             },
             data: allMedications
+        })
+    } catch (e) {
+        res.send(e)
+    }
+})
+
+router.put('/:id', async (req, res) => {
+    try {
+        const editMedication = await Medication.findByIdAndUpdate(req.params.id, req.body, {
+            new: true
+        })
+        res.json({
+            status: {
+                code: 201,
+                message: "Medication edited"
+            },
+
+            data: editMedication
+
         })
     } catch (e) {
         res.send(e)

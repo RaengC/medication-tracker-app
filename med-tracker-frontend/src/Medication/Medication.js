@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Jumbotron, Button } from 'reactstrap'
-import { useHistory, Route, Switch } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import MedicationDisplay from './MedicationDisplay'
 import { getMedicationsList } from '../Api'
@@ -10,16 +10,19 @@ const Medication = (props) => {
 
     const [medications, setMedications] = useState([])
 
+
     let history = useHistory()
 
     useEffect(() => {
         refreshMedicationList()
+
     }, [])
 
     const refreshMedicationList = async () => {
         const medList = await getMedicationsList()
         setMedications(medList)
     }
+
 
     return (
         <div>
@@ -37,7 +40,6 @@ const Medication = (props) => {
             </Jumbotron>
 
             <MedicationDisplay medications={medications} />
-
 
         </div>
 

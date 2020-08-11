@@ -5,8 +5,6 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
-    NavLink,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
@@ -28,11 +26,25 @@ const Navigation = (props) => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
-                        <NavItem>
-                            <NavLink href="/profile">
+
+                        <UncontrolledDropdown nav inNavbar>
+                            <DropdownToggle nav caret>
                                 Profile
-                            </NavLink>
-                        </NavItem>
+                            </DropdownToggle>
+                            <DropdownMenu right>
+                                <DropdownItem>
+                                    <Link to="/profile">Medication</Link>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <Link to="/addMedication">Add Medication</Link>
+                                </DropdownItem>
+                                <DropdownItem divider />
+                                <DropdownItem>
+                                    <Link to="/editMedication">Edit Medication</Link>
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
+
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 Account
@@ -50,6 +62,7 @@ const Navigation = (props) => {
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
+
                     </Nav>
                     <NavbarText>Simple Text</NavbarText>
                 </Collapse>

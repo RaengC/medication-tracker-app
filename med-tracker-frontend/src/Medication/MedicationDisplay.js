@@ -2,6 +2,7 @@ import React from 'react'
 import { Table } from 'reactstrap';
 
 const MedicationDisplay = (props) => {
+
     return (
         // console.log(props)
 
@@ -13,6 +14,7 @@ const MedicationDisplay = (props) => {
                     <th>Frequency Taken</th>
                     <th>Time Taken</th>
                     <th>Notes</th>
+                    {/* <th>Edit</th> */}
                 </tr>
             </thead>
 
@@ -24,6 +26,9 @@ const MedicationDisplay = (props) => {
                         <td>{medication.frequency}</td>
                         <td>{medication.time}</td>
                         <td>{medication.notes}</td>
+                        {/* <td><Button onClick={() => props.editMed(medication._id)}>
+                            Select
+                            </Button></td> */}
                     </tr>
                 </tbody>
                 )

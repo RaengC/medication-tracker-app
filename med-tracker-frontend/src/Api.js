@@ -41,7 +41,17 @@ export async function getMedicationsList() {
         headers: headerOptions,
     })
     const data = await result.json()
-    console.log(data.data, ' med list')
+    console.log(data.data, ' med list api')
     return data.data
+}
 
+export const editMedication = async (id, medDetails) => {
+    const result = await fetch(`/medication/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(medDetails),
+        headers: headerOptions
+    })
+    const data = await result.json()
+    console.log(data, ' edit list api')
+    return data
 }
