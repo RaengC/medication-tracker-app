@@ -45,6 +45,16 @@ export async function getMedicationsList() {
     return data.data
 }
 
+//this may not be linked to backend
+export async function getMedicationById(id) {
+    const result = await fetch(`/medication/${id}`, {
+        headers: headerOptions
+    })
+    const data = await result.json()
+    console.log(data, ' getMedictionById API')
+    return data
+}
+
 export const editMedication = async (id, medDetails) => {
     const result = await fetch(`/medication/${id}`, {
         method: 'PUT',

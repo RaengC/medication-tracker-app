@@ -20,12 +20,37 @@ router.get('/', async (req, res) => {
         res.send(e)
     }
 })
+router.get('/:id', async (req, res) => {
+    try {
+        const getMed = await Medication.findById(req.params.id)
+        if (getMed) {
+            res.json({
+                status: {
+                    code: 200,
+                    message: 'Record Found'
+                },
+                data: getMed
+            })
+        } else {
+            res.json({
+                status: {
+                    code: 404,
+                    message: "Record not found"
+                }
+            })
+        }
+    }
+    catch (e) {
+        res.send(e)
+    }
+})
 
 router.put('/:id', async (req, res) => {
     try {
         const editMedication = await Medication.findByIdAndUpdate(req.params.id, req.body, {
             new: true
         })
+        console.log('edit med controller', editMedication)
         res.json({
             status: {
                 code: 201,
@@ -37,6 +62,7 @@ router.put('/:id', async (req, res) => {
         })
     } catch (e) {
         res.send(e)
+        console.log(e, ' error')
     }
 })
 

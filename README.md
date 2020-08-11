@@ -59,17 +59,15 @@ Medication/supplement tracking app. Allowing logged in users to add medication n
 * express JS
 ## Models
 * GET
-  * '/'           get all medications
-  * '/:id'        get medication by id
-   * /logout      user logout
+  * '/medication/'           get all medications
+  * '/medication/:id'        get medication by id
+  * '/account/logout'        user logout
 * POST
-  * /createuser   create new user
-  * /login        user login
-  * /medication   add new medication
-* PATCH
-  * '/:id'        find by id and update
+  * '/account/createuser'    create new user
+  * '/account/login'         user login
+  * '/medication/new'        add new medication
+* PUT
+  * '/medication/:id'        find by id and update
 * DELETE
-  * '/:id'        find by id and delete
+  * '/medication/:id'        find by id and delete
 
-# Routes Plan
-https://dbdiagram.io/d/5f27d04a7543d301bf5da556 

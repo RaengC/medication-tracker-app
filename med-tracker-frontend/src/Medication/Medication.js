@@ -10,7 +10,6 @@ const Medication = (props) => {
 
     const [medications, setMedications] = useState([])
 
-
     let history = useHistory()
 
     useEffect(() => {
@@ -30,13 +29,13 @@ const Medication = (props) => {
             <Jumbotron>
                 <h1 className="display-3">Medication Tracker</h1>
                 <p className="lead">Welcome, to your personal medication/supplement tracking app. </p>
-                <hr className="my-2" />
+                {/* <hr className="my-2" />
                 <p>Add your medication below to get started.</p>
                 <p className="lead">
                     <Button color="primary" onClick={() => { history.push('/addMedication') }}>
                         Add Medication
                     </Button>
-                </p>
+                </p> */}
             </Jumbotron>
 
             <MedicationDisplay medications={medications} />

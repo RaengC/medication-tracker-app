@@ -35,9 +35,9 @@ function App() {
             <Route path="/login"><Login setLoggin={setLoggedIn} /></Route>
             <Route path="/register"><Register /></Route>
             <Route path="/profile">{loggedIn ? <Medication /> : <Redirect to={'/login'} />} </Route>
-            <Route path="/addMedication"><MedicationNew /></Route>
-            <Route path="/editMedication"><MedicationEditList /></Route>
-            <Route path="/edit"><Edit /></Route>
+            <Route path="/addMedication">{loggedIn ? <MedicationNew /> : <Redirect to={'/login'} />}</Route>
+            <Route path="/editMedication">{loggedIn ? <MedicationEditList /> : <Redirect to={'/login'} />}</Route>
+            <Route path="/edit/:id"><Edit /></Route>
 
             <Route path="/"><LandingPage /></Route>
           </Switch>
