@@ -1,10 +1,13 @@
 import React from 'react'
 import { Table } from 'reactstrap';
+import MedicationNew from './MedicationNew';
+import moment from 'moment'
 
 const MedicationDisplay = (props) => {
 
+    let time = moment().format("dddd")
+
     return (
-        // console.log(props)
 
         <Table hover>
             <thead>
@@ -12,9 +15,9 @@ const MedicationDisplay = (props) => {
                     <th>Medication</th>
                     <th>Dosage</th>
                     <th>Frequency Taken</th>
+                    <th>Day</th>
                     <th>Time Taken</th>
                     <th>Notes</th>
-                    {/* <th>Edit</th> */}
                 </tr>
             </thead>
 
@@ -24,11 +27,9 @@ const MedicationDisplay = (props) => {
                         <th scope="row" key={medication._id}>{medication.name}</th>
                         <td>{medication.dosage}</td>
                         <td>{medication.frequency}</td>
+                        <th>{medication.startDate}</th>
                         <td>{medication.time}</td>
                         <td>{medication.notes}</td>
-                        {/* <td><Button onClick={() => props.editMed(medication._id)}>
-                            Select
-                            </Button></td> */}
                     </tr>
                 </tbody>
                 )

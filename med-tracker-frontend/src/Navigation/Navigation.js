@@ -12,7 +12,9 @@ import {
     NavbarText
 } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
+let time = moment().format("dddd, Do MMMM YYYY, h:mm a")
 
 const Navigation = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +66,7 @@ const Navigation = (props) => {
                         </UncontrolledDropdown>
 
                     </Nav>
-                    <NavbarText>Simple Text</NavbarText>
+                    <NavbarText>{time}</NavbarText>
                 </Collapse>
             </Navbar>
 

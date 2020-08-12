@@ -20,6 +20,8 @@ router.get('/', async (req, res) => {
         res.send(e)
     }
 })
+
+//GET medication by ID
 router.get('/:id', async (req, res) => {
     try {
         const getMed = await Medication.findById(req.params.id)
@@ -45,6 +47,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+//Find Med by ID then Update
 router.put('/:id', async (req, res) => {
     try {
         const editMedication = await Medication.findByIdAndUpdate(req.params.id, req.body, {

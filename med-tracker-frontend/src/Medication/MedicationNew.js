@@ -1,23 +1,22 @@
 import React, { useState } from 'react'
-import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import { useHistory } from 'react-router-dom'
 import { DatePicker, Space } from 'antd'
 
 import { addMedication } from '../Api'
 
 const MedicationNew = (props) => {
+
     let history = useHistory()
 
-    const [name, setName] = useState('')
-    const [totalQuantity, setTotalQuantity] = useState('')
-    const [dosage, setDosage] = useState('')
-    const [startDate, setStartDate] = useState('')
-    const [frequency, setFrequency] = useState('')
-    const [time, setTime] = useState([])
-    const [reminder, setReminder] = useState([])
-    const [notes, setNotes] = useState('')
-
-
+    const [name, setName] = useState(props.medication.name)
+    const [totalQuantity, setTotalQuantity] = useState(props.medication.totalQuantity)
+    const [dosage, setDosage] = useState(props.medication.dosage)
+    const [startDate, setStartDate] = useState(props.medication.startDate)
+    const [frequency, setFrequency] = useState(props.medication.frequency)
+    const [time, setTime] = useState(props.medication.time)
+    const [reminder, setReminder] = useState(props.medication.reminder)
+    const [notes, setNotes] = useState(props.medication.notes)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -43,7 +42,6 @@ const MedicationNew = (props) => {
         setTime([])
         setReminder([])
         setNotes('')
-
     }
 
     function addSelectedTimes(event) {
@@ -202,7 +200,7 @@ const MedicationNew = (props) => {
                 </Col>
             </FormGroup>
         </Form >
-    );
+    )
 }
 
-export default MedicationNew;
+export default MedicationNew

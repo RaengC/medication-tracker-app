@@ -5,10 +5,8 @@ import { getMedicationById, editMedication } from '../Api'
 import MedicationNew from './MedicationNew'
 
 function Edit(props) {
-
-
     let { id } = useParams()
-    console.log('id ', id)
+
     let [medication, setMedication] = useState(null)
 
     const [submitMsg, setSubmitMsg] = useState({ msg: '', state: false })
@@ -21,6 +19,7 @@ function Edit(props) {
 
     const getMedication = async () => {
         const data = await getMedicationById(id)
+        console.log(data, 'data')
         console.log('edit page id ' + id)
         setMedication(data.data)
     }
@@ -45,8 +44,6 @@ function Edit(props) {
                 medication && <MedicationNew pageTitle={'Edit Medication'}
                     medication={medication} submitHandler={submitHandler} />
             }
-
-
         </React.Fragment>
     )
 }

@@ -45,7 +45,6 @@ export async function getMedicationsList() {
     return data.data
 }
 
-//this may not be linked to backend
 export async function getMedicationById(id) {
     const result = await fetch(`/medication/${id}`, {
         headers: headerOptions
