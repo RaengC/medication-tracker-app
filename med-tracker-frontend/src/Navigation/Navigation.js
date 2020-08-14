@@ -38,11 +38,11 @@ const Navigation = (props) => {
                                     <Link to="/profile">Medication</Link>
                                 </DropdownItem>
                                 <DropdownItem>
-                                    <Link to="/addMedication">Add Medication</Link>
+                                    <Link to="/add">Add Medication</Link>
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                    <Link to="/editMedication">Edit Medication</Link>
+                                    <Link to="/editList">Edit Medication</Link>
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>

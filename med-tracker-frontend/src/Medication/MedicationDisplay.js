@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table } from 'reactstrap';
-import MedicationNew from './MedicationNew';
+// import MedicationNew from './MedicationNew';
 import moment from 'moment'
 
 const MedicationDisplay = (props) => {

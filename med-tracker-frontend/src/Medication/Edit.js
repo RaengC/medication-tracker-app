@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, Redirect } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { getMedicationById, editMedication } from '../Api'
 import MedicationNew from './MedicationNew'
+import FormCompleteMsg from './FormCompleteMsg'
 
 function Edit(props) {
     let { id } = useParams()
@@ -10,7 +11,7 @@ function Edit(props) {
     let [medication, setMedication] = useState(null)
 
     const [submitMsg, setSubmitMsg] = useState({ msg: '', state: false })
-    const [redirectHome, seRedirectHome] = useState(false)
+    const [redirectHome, setRedirectHome] = useState(false)
 
 
     useEffect(() => {
@@ -44,6 +45,9 @@ function Edit(props) {
                 medication && <MedicationNew pageTitle={'Edit Medication'}
                     medication={medication} submitHandler={submitHandler} />
             }
+            <FormCompleteMsg submitMsg={submitMsg}
+                setRedirectHome={setRedirectHome}
+                redirectHome={redirectHome} />
         </React.Fragment>
     )
 }
