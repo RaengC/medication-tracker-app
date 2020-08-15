@@ -11,17 +11,25 @@ import {
     DropdownItem,
     NavbarText
 } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import moment from 'moment'
 
-let time = moment().format("dddd, Do MMMM YYYY, h:mm a")
 
 const Navigation = (props) => {
+
+    let history = useHistory()
+    let time = moment().format("dddd, Do MMMM YYYY, h:mm a")
+
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     // const [loggedIn, setLoggedIn] = useState(isLoggedIn)
 
-
+    const handleLogout = () => {
+        console.log("logout")
+        window.localStorage.clear('userloggedin', false)
+        // props.logout(false)
+        history.push("/")
+    }
     return (
         <React.Fragment>
             <Navbar color="light" light expand="md">
@@ -61,8 +69,7 @@ const Navigation = (props) => {
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                    <Link to="/logout">Logout</Link>
-
+                                    <Link onClick={handleLogout}>Logout</Link>
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>

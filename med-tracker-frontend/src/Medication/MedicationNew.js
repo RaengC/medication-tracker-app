@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap'
-import { useHistory } from 'react-router-dom'
 import { DatePicker, Space } from 'antd'
 
 const MedicationNew = (props) => {
-
-    let history = useHistory()
 
     const [name, setName] = useState(props.medication.name)
     const [totalQuantity, setTotalQuantity] = useState(props.medication.totalQuantity)
@@ -29,7 +26,7 @@ const MedicationNew = (props) => {
             reminder,
             notes,
         }).then(() => {
-            history.push('/profile')
+
         })
 
         setName('')

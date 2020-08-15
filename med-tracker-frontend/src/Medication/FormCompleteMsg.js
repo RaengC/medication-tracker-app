@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import { Button } from 'reactstrap'
 
 function FormCompleteMsg(props) {
 
@@ -11,9 +12,9 @@ function FormCompleteMsg(props) {
                     <h1>{props.submitMsg.msg}</h1>
                     {
                         props.submitMsg.state &&
-                        <button onClick={() => props.setRedirectHome(true)}>
+                        <Button onClick={() => props.setRedirectHome(true)}>
                             View Medication List
-                        </button>
+                        </Button>
                     }
                 </React.Fragment>
             }

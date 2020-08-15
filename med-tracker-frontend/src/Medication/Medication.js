@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Medication.css'
-import { Jumbotron, Button } from 'reactstrap'
+import { Jumbotron } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 
 import MedicationDisplay from './MedicationDisplay'

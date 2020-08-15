@@ -12,12 +12,13 @@ function Add() {
         try {
             const med = await addMedication(medDetails)
             console.log(med)
-            setSubmitMsg({ msg: 'Medication added, add another?' })
+            setSubmitMsg({ msg: 'Medication added, add another or go to profile.', state: true })
         } catch (e) {
             console.log(e)
-            setSubmitMsg({ msg: 'Something went wrong, try again.' })
+            setSubmitMsg({ msg: 'Something went wrong, try again.', state: false })
         }
     }
+
     return (
         <React.Fragment>
             <MedicationNew submitHandler={addMedicationHandler}

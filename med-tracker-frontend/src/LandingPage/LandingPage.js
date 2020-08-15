@@ -17,11 +17,8 @@ function LandingPage() {
                 <hr className="my-2" />
                 <p>Login or create an account to get started.</p>
                 <p className="lead">
-                    <Button color="primary" onClick={() => { history.push('/login') }}>
+                    <Button onClick={() => { history.push('/login') }}>
                         Login
-                </Button>
-                    <Button color="primary" onClick={() => { history.push('/register') }}>
-                        Create Account
                 </Button>
                 </p>
             </Jumbotron>
