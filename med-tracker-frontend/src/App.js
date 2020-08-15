@@ -15,14 +15,16 @@ import Edit from './Medication/Edit'
 import Add from './Medication/Add'
 
 export const isLoggedIn = () => {
-  //need to add if refresh so loggedin checks
-  //see notes from Callan in slack (code backend)
-  //need an api call to check status in backend
+  if (window.localStorage.getItem('userloggedin')) {
+    return true
+  }
+  return false
+  //stops refresh from going back to login
 }
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = React.useState(isLoggedIn)
+  const [loggedIn, setLoggedIn] = React.useState(isLoggedIn())
 
   return (
 

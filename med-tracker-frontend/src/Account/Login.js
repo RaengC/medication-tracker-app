@@ -17,9 +17,10 @@ function LoginPage(props) {
         login({
             username: username,
             password: password,
-        }).then((token) => {
+        }).then(() => {
             setName('')
             setPassword('')
+            window.localStorage.setItem('userloggedin', true) //when logout reset storage to false
             props.setLoggin(true)
             history.push('/profile')
 

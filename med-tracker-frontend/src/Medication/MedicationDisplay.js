@@ -6,6 +6,9 @@ import moment from 'moment'
 const MedicationDisplay = (props) => {
 
     let time = moment().format("dddd")
+    console.log('props', props.medications)
+
+
 
     return (
 
@@ -21,20 +24,29 @@ const MedicationDisplay = (props) => {
                 </tr>
             </thead>
 
-            {props.medications.map((medication) => {
-                return (<tbody>
-                    <tr >
-                        <th scope="row" key={medication._id}>{medication.name}</th>
-                        <td>{medication.dosage}</td>
-                        <td>{medication.frequency}</td>
-                        <th>{medication.startDate}</th>
-                        <td>{medication.time}</td>
-                        <td>{medication.notes}</td>
-                    </tr>
-                </tbody>
-                )
-            })}
+            <tbody>
+                {props.medications.length && props.medications.map((medication) => {
+                    console.log(medication)
+                    const date = moment(medication.startDate).format('YYYY-MM-DD')
+                    const times = medication.time.map((t) => {
+                        return moment(`${date} ${t}`).format('h:mm a')
+                        //wont have to loop through array if sperating times above to show individual line items
+                    })
+                    console.log('times', times)
+                    //moment('2020 08 12 11:00').format('h:mm a')
 
+                    return (
+                        <tr key={medication._id}>
+                            <th scope="row" >{medication.name}</th>
+                            <td>{medication.dosage}</td>
+                            <td>{medication.frequency}</td>
+                            <th>{date}</th>
+                            <td>{times.join(', ')}</td>
+                            <td>{medication.notes}</td>
+                        </tr>
+                    )
+                })}
+            </tbody>
         </Table >
 
     );
