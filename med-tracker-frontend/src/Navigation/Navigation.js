@@ -21,6 +21,7 @@ const Navigation = (props) => {
     const toggle = () => setIsOpen(!isOpen);
     // const [loggedIn, setLoggedIn] = useState(isLoggedIn)
 
+
     return (
         <React.Fragment>
             <Navbar color="light" light expand="md">
@@ -60,7 +61,8 @@ const Navigation = (props) => {
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                    Logout
+                                    <Link to="/logout">Logout</Link>
+
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>

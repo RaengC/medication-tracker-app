@@ -26,6 +26,16 @@ export async function register(userDetails) {
     return result.headers.get('token')
 }
 
+export async function logout(userDetails) {
+    const result = await fetch('/account/logout', {
+        method: 'GET',
+        body: JSON.stringify(userDetails),
+        headers: headerOptions
+    })
+    const data = await result.json()
+    return data
+}
+
 export async function addMedication(medicationDetails) {
     const result = await fetch('/medication/new', {
         method: 'POST',

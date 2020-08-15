@@ -8,6 +8,27 @@ const MedicationDisplay = (props) => {
     let time = moment().format("dddd")
     console.log('props', props.medications)
 
+    /*
+    create new array, const new array = [] to loop though time array and display each line with complete data
+    as a seperate entry. push into the array here.  
+    new array = props.medications { 
+        if (medication.time.length > 1){
+            loop through 
+            then new array.push()
+        }
+    }
+    */
+
+    // const newArray = []
+    // newArray = props.medications.length && props.medications.map((medication) => {
+    //     if (medication.time.length > 1) {
+    //         for (let i = 0; i < time.length; i++) {
+    //             console.log([i])
+    //         }
+    //     } else {
+    //         console.log('nothing')
+    //     }
+    // })
 
 
     return (

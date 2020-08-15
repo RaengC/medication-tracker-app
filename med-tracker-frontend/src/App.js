@@ -13,6 +13,7 @@ import MedicationEditList from './Medication/MedicationEditList'
 import LandingPage from './LandingPage/LandingPage'
 import Edit from './Medication/Edit'
 import Add from './Medication/Add'
+import Logout from './Account/Logout';
 
 export const isLoggedIn = () => {
   if (window.localStorage.getItem('userloggedin')) {
@@ -37,6 +38,7 @@ function App() {
           <Switch>
             <Route path="/login"><Login setLoggin={setLoggedIn} /></Route>
             <Route path="/register"><Register /></Route>
+            <Route path="/logout"><Logout /></Route>
             <Route path="/profile">{loggedIn ? <Medication /> : <Redirect to={'/login'} />} </Route>
 
             <Route path="/add">{loggedIn ? <Add /> : <Redirect to={'/login'} />}</Route>
