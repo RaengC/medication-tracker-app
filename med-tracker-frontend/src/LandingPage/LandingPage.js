@@ -7,7 +7,7 @@ function LandingPage() {
     let history = useHistory()
     return (
         <div>
-            <Jumbotron class="Jumbo">
+            <Jumbotron>
                 <h1 className="display-3">Medication Tracker</h1>
                 <p className="lead">A medication or herbal supplement tracking application.
                 Add add new medication, with your daily dosage and timeframes to take it.

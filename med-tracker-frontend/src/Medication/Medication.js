@@ -7,7 +7,7 @@ import MedicationDisplay from './MedicationDisplay'
 import { getMedicationsList } from '../Api'
 
 
-const Medication = () => {
+const Medication = (props) => {
 
     const [medications, setMedications] = useState([])
     const [editMedication, setEditMedication] = useState(null)
@@ -27,7 +27,6 @@ const Medication = () => {
         setEditMedication(medID)
         console.log('editMed again ', medID)
     }
-
 
     return (
         <div>
