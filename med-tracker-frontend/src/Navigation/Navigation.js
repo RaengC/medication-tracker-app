@@ -13,6 +13,7 @@ import {
 } from 'reactstrap'
 import { Link, useHistory } from 'react-router-dom'
 import moment from 'moment'
+import './Navigation.css'
 
 
 const Navigation = (props) => {
@@ -26,9 +27,9 @@ const Navigation = (props) => {
 
     const handleLogout = () => {
         console.log("logout")
-        window.localStorage.clear('userloggedin', false)
-        // props.logout(false)
+        window.localStorage.clear()
         history.push("/")
+        window.location.reload(false)
     }
     return (
         <React.Fragment>
