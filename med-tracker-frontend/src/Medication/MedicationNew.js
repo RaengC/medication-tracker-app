@@ -194,6 +194,7 @@ const MedicationNew = (props) => {
                     <Col sm={{ size: 10, offset: 2 }}>
                         <Button input type="submit">Submit</Button>
                     </Col>
+                    <Col></Col>
                 </FormGroup>
             </Form >
         </>

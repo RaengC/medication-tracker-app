@@ -12,7 +12,7 @@ function Add() {
         try {
             const med = await addMedication(medDetails)
             console.log(med)
-            setSubmitMsg({ msg: 'Medication added, add another or go to profile.', state: true })
+            setSubmitMsg({ msg: 'Medication added, add another or     ', state: true })
         } catch (e) {
             console.log(e)
             setSubmitMsg({ msg: 'Something went wrong, try again.', state: false })
@@ -21,6 +21,10 @@ function Add() {
 
     return (
         <React.Fragment>
+            <FormCompleteMsg submitMsg={submitMsg}
+                setRedirectHome={setRedirectHome}
+                redirectHome={redirectHome}
+            />
             <MedicationNew submitHandler={addMedicationHandler}
                 pageTitle={'Enter Medication'}
                 medication={{
@@ -33,10 +37,7 @@ function Add() {
                     reminder: '',
                     notes: ''
                 }} />
-            <FormCompleteMsg submitMsg={submitMsg}
-                setRedirectHome={setRedirectHome}
-                redirectHome={redirectHome}
-            />
+
         </React.Fragment>
     )
 

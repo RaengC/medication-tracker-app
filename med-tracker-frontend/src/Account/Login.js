@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap'
 import { useHistory } from 'react-router-dom'
 import { login } from '../Api'
 
@@ -40,7 +40,9 @@ function LoginPage(props) {
         <React.Fragment>
             {
                 error &&
-                <p>Login or Password Incorrect, please try again or Create an Account.</p>
+                <Alert color="info">
+                    Login or Password Incorrect, please try again or Create an Account.
+                </Alert>
             }
 
             <Form onSubmit={handleSubmit}>

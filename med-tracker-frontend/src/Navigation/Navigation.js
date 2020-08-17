@@ -45,7 +45,7 @@ const Navigation = (props) => {
                             </DropdownToggle>
                             <DropdownMenu right>
                                 <DropdownItem>
-                                    <Link to="/profile">Medication</Link>
+                                    <Link to="/profile">Medication List</Link>
                                 </DropdownItem>
                                 <DropdownItem>
                                     <Link to="/add">Add Medication</Link>

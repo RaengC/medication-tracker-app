@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Col, Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap'
+import { Space } from 'antd'
 
 function FormCompleteMsg(props) {
 
@@ -9,13 +10,16 @@ function FormCompleteMsg(props) {
             {
                 props.submitMsg.msg.length > 0 &&
                 <React.Fragment>
-                    <Label>{props.submitMsg.msg}</Label>
-                    {
-                        props.submitMsg.state &&
-                        <Button onClick={() => props.setRedirectHome(true)}>
-                            View Medication List
+                    <Space>
+                        <Alert color="info">{props.submitMsg.msg}
+                            {
+                                props.submitMsg.state &&
+                                <Button onClick={() => props.setRedirectHome(true)}>
+                                    Go to Profile
                         </Button>
-                    }
+                            }
+                        </Alert>
+                    </Space>
                 </React.Fragment>
             }
             {
