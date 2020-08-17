@@ -42,7 +42,7 @@ function App() {
             <Route path="/editList">{loggedIn ? <MedicationEditList /> : <Redirect to={'/login'} />}</Route>
             <Route path="/edit/:id"><Edit /></Route>
 
-            <Route path="/"><LandingPage /></Route>
+            <Route path="/"><LandingPage /> </Route>
           </Switch>
 
         </Container>

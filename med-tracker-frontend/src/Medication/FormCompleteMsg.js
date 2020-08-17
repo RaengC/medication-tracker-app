@@ -9,7 +9,7 @@ function FormCompleteMsg(props) {
             {
                 props.submitMsg.msg.length > 0 &&
                 <React.Fragment>
-                    <Label >{props.submitMsg.msg}</Label>
+                    <Label>{props.submitMsg.msg}</Label>
                     {
                         props.submitMsg.state &&
                         <Button onClick={() => props.setRedirectHome(true)}>

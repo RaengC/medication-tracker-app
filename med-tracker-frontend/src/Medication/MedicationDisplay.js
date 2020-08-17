@@ -15,7 +15,7 @@ const MedicationDisplay = (props) => {
             })
         }
     })
-    console.log("medDaily", medDaily)
+    // console.log("medDaily", medDaily)
 
     let daily = []
     let weekly = []
@@ -30,7 +30,7 @@ const MedicationDisplay = (props) => {
 
     //compare function within sort function. 
     const compare = (a, b) => {
-        console.log(moment(a.time, 'MMMM D, YYYY HH:MM'))
+        // console.log(moment(a.time, 'MMMM D, YYYY HH:MM'))
         if (moment(a.time, 'MMMM D, YYYY HH:MM').isBefore(moment(b.time, 'MMMM D, YYYY HH:MM'))) {
             return -1
         } else {
@@ -42,17 +42,17 @@ const MedicationDisplay = (props) => {
     weekly.sort(compare)
 
     medDaily = [...daily, ...weekly]
-    //create daily nad weekly array, to loop the data though
+
 
     return (
         <Table hover>
             <thead>
                 <tr>
                     <th>Medication</th>
-                    <th>Dosage</th>
+                    <th>Dose</th>
                     <th>Schedule</th>
-                    <th>Start Day</th>
-                    <th>Time Taken</th>
+                    {/* <th>Start Day</th> */}
+                    <th>Time</th>
                     <th>Notes</th>
                 </tr>
             </thead>
@@ -68,7 +68,7 @@ const MedicationDisplay = (props) => {
                             <th scope="row" >{medication.name}</th>
                             <td>{medication.dosage}</td>
                             <td>{medication.frequency}</td>
-                            <th>{formateDateDisplay}</th>
+                            {/* <th>{formateDateDisplay}</th> */}
                             <td>{moment(`${date} ${medication.time}`).format('h:mm a')}</td>
                             <td>{medication.notes}</td>
                         </tr>
