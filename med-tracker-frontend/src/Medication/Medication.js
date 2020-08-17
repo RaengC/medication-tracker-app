@@ -31,7 +31,7 @@ const Medication = (props) => {
     return (
         <div>
 
-            <Jumbotron class='Jumbo'>
+            <Jumbotron className='Jumbo'>
                 <h1 className="display-3">Medication Tracker</h1>
                 <p className="lead">Welcome, to your personal medication/supplement tracking app. </p>
             </Jumbotron>

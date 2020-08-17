@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Button } from 'reactstrap'
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 function FormCompleteMsg(props) {
 
@@ -9,7 +9,7 @@ function FormCompleteMsg(props) {
             {
                 props.submitMsg.msg.length > 0 &&
                 <React.Fragment>
-                    <h1>{props.submitMsg.msg}</h1>
+                    <Label >{props.submitMsg.msg}</Label>
                     {
                         props.submitMsg.state &&
                         <Button onClick={() => props.setRedirectHome(true)}>

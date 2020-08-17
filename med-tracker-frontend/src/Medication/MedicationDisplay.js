@@ -4,7 +4,7 @@ import moment from 'moment'
 
 const MedicationDisplay = (props) => {
 
-    const medDaily = []
+    let medDaily = []
     props.medications.map((eachMed) => {
 
         if (eachMed.time.length) {
@@ -17,6 +17,32 @@ const MedicationDisplay = (props) => {
     })
     console.log("medDaily", medDaily)
 
+    let daily = []
+    let weekly = []
+
+    daily = medDaily.filter((eachMed) => {
+        return eachMed.frequency === "Daily"
+    })
+
+    weekly = medDaily.filter((eachMed) => {
+        return eachMed.frequency === "Weekly"
+    })
+
+    //compare function within sort function. 
+    const compare = (a, b) => {
+        console.log(moment(a.time, 'MMMM D, YYYY HH:MM'))
+        if (moment(a.time, 'MMMM D, YYYY HH:MM').isBefore(moment(b.time, 'MMMM D, YYYY HH:MM'))) {
+            return -1
+        } else {
+            return 1
+        }
+    }
+
+    daily.sort(compare)
+    weekly.sort(compare)
+
+    medDaily = [...daily, ...weekly]
+    //create daily nad weekly array, to loop the data though
 
     return (
         <Table hover>

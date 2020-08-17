@@ -58,7 +58,6 @@ const MedicationNew = (props) => {
 
     return (
         <>
-            {/* <FormGroup>{props.pageTitle}</FormGroup> */}
 
             <Form onSubmit={handleSubmit} >
                 <FormGroup row>
